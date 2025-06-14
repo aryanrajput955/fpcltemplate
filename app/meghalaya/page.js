@@ -12,49 +12,49 @@ export default function MeghalayaPage() {
   const fpoListings = [
     {
       name: 'Wapung Farm Fresh',
-      imageSrc: 'https://via.placeholder.com/400x200?text=FPO+1',
+      imageSrc: '/p1.jpg',
       description: 'Providing fresh, organic produce directly from our farms to your table.',
       link: '/fpos/wapung-farm-fresh',
     },
     {
       name: 'Chibasal FPCL',
-      imageSrc: 'https://via.placeholder.com/400x200?text=FPO+2',
+      imageSrc: '/p2.jpg',
       description: 'Empowering farmers with sustainable practices for better yields.',
       link: '/fpos/chibasal-fpcl',
     },
     {
       name: 'Mawrang FPCL',
-      imageSrc: 'https://via.placeholder.com/400x200?text=FPO+3',
+      imageSrc: '/p1.jpg',
       description: 'Supporting local farmers with access to markets and resources.',
       link: '/fpos/mawrang-fpcl',
     },
     {
       name: 'Green Valley FPCL',
-      imageSrc: 'https://via.placeholder.com/400x200?text=FPO+4',
+      imageSrc: '/p1.jpg',
       description: 'Delivering high-quality organic vegetables grown with care.',
       link: '/fpos/green-valley-fpcl',
     },
     {
       name: 'Sohra Farmers',
-      imageSrc: 'https://via.placeholder.com/400x200?text=FPO+5',
+      imageSrc: '/p1.jpg',
       description: 'Promoting traditional farming methods for sustainable growth.',
       link: '/fpos/sohra-farmers',
     },
     {
       name: 'Laitkynsew FPCL',
-      imageSrc: 'https://via.placeholder.com/400x200?text=FPO+6',
+      imageSrc: '/p1.jpg',
       description: 'Connecting farmers to markets for better income opportunities.',
       link: '/fpos/laitkynsew-fpcl',
     },
     {
       name: 'Nongstoin FPCL',
-      imageSrc: 'https://via.placeholder.com/400x200?text=FPO+7',
+        imageSrc: '/p1.jpg',
       description: 'Offering training and support for modern farming techniques.',
       link: '/fpos/nongstoin-fpcl',
     },
     {
       name: 'Jowai Organic',
-      imageSrc: 'https://via.placeholder.com/400x200?text=FPO+8',
+     imageSrc: '/p1.jpg',
       description: 'Specializing in organic farming for a healthier community.',
       link: '/fpos/jowai-organic',
     },
@@ -62,7 +62,7 @@ export default function MeghalayaPage() {
 
   return (
     <FpoTemplate
-      stateName="Meghalya"
+      stateName="Meghalaya"
       eventName="Ugrami Haat"
       bannerImages={bannerImages}
       fpoListings={fpoListings}

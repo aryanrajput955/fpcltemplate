@@ -29,10 +29,10 @@ const Header = () => {
   return (
     <header className="bg-gradient-to-r from-green-800 to-gray-900 shadow-lg sticky top-0 z-50">
       {/* Sticky Top Section with Marquee */}
-      <div className="bg-gray-800 text-center py-2 border-b border-gray-700 overflow-hidden">
+      <div className="bg-gray-800 text-center py-2.5 border-b border-gray-700 overflow-hidden">
         <div className="inline-block whitespace-nowrap animate-marquee">
           {newsItems.map((item, index) => (
-            <span key={index} className="text-sm text-gray-200 mx-8">
+            <span key={index} className="text-sm text-gray-200 mx-10">
               {item}
             </span>
           ))}
@@ -40,42 +40,53 @@ const Header = () => {
       </div>
 
       {/* Navigation Section */}
-      <div className="container mx-auto flex items-center justify-between py-4 px-4 sm:px-6">
+      <div className="container mx-auto flex items-center justify-between py-4 pl-2 sm:pl-4 lg:pl-6 pr-4 sm:pr-6 lg:pr-8">
         {/* Logo Placeholder */}
-        <div className="text-2xl font-bold text-white">
-          <img src="/logofpcl.png" alt="Logo" className="h-10 w-auto inline-block" />
+        <div className="text-2xl font-bold text-white flex-shrink-0">
+          <img src="/logofpcl.png" alt="Logo" className="h-10 w-auto" />
         </div>
 
-        {/* Hamburger Menu for Mobile */}
+        {/* Mobile Search Bar (Centered) */}
+        <div className="flex-1 mx-6 md:hidden">
+          <div className="relative max-w-[200px] mx-auto">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="w-full pl-10 pr-4 py-1.5 rounded-full bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
+            />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+          </div>
+        </div>
+
+        {/* Hamburger Menu for Mobile (Moved to Right) */}
         <button
-          className="sm:hidden text-gray-200 hover:text-green-400"
+          className="md:hidden text-gray-200 hover:text-green-400 flex-shrink-0"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
 
         {/* Desktop Navigation */}
-        <nav className="hidden sm:flex justify-center flex-1">
-          <div className="flex items-center space-x-6">
-            <Link href="/" className="text-gray-200 hover:text-green-400">Home</Link>
-
-            <Link href="/services" className="text-gray-200 hover:text-green-400">Services</Link>
+        <nav className="hidden md:flex justify-center flex-1">
+          <div className="flex items-center space-x-5 lg:space-x-8">
+            <Link href="/" className="text-gray-200 hover:text-green-400 text-base whitespace-nowrap">Home</Link>
+            <Link href="/services" className="text-gray-200 hover:text-green-400 text-base whitespace-nowrap">Services</Link>
 
             {/* Dropdown for FPO Partners */}
             <div className="relative group">
-              <button className="text-gray-200 hover:text-green-400 flex items-center">
+              <button className="text-gray-200 hover:text-green-400 flex items-center text-base whitespace-nowrap">
                 FPO Partners
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
-              <div className="absolute left-0 top-6 h-4 w-full opacity-0 pointer-events-none group-hover:pointer-events-auto"></div>
-              <div className="absolute left-0 mt-2 w-64 bg-yellow-100 shadow-lg rounded-md opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 ease-in-out pointer-events-none group-hover:pointer-events-auto z-50 max-h-96 overflow-y-auto">
+              <div className="absolute left-0 top-6 h-6 w-full opacity-0 pointer-events-none group-hover:pointer-events-auto"></div>
+              <div className="absolute left-0 mt-1 w-64 bg-yellow-100 shadow-lg rounded-md opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto z-50 max-h-96 overflow-y-auto">
                 {indianStates.map((state) => (
                   <Link
                     key={state}
                     href={`/partners/${state.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="block px-4 py-2 text-gray-800 hover:bg-green-200"
+                    className="block px-4 py-2.5 text-gray-800 hover:bg-green-200 text-sm"
                   >
                     {state}
                   </Link>
@@ -85,39 +96,39 @@ const Header = () => {
 
             {/* Dropdown for Schemes */}
             <div className="relative group">
-              <button className="text-gray-200 hover:text-green-400 flex items-center">
+              <button className="text-gray-200 hover:text-green-400 flex items-center text-base whitespace-nowrap">
                 Schemes
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
-              <div className="absolute left-0 top-6 h-4 w-full opacity-0 pointer-events-none group-hover:pointer-events-auto"></div>
-              <div className="absolute left-0 mt-2 w-48 bg-yellow-100 shadow-lg rounded-md opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 ease-in-out pointer-events-none group-hover:pointer-events-auto z-50">
-                <Link href="/schemes/scheme1" className="block px-4 py-2 text-gray-800 hover:bg-green-200">Scheme 1</Link>
-                <Link href="/schemes/scheme2" className="block px-4 py-2 text-gray-800 hover:bg-green-200">Scheme 2</Link>
+              <div className="absolute left-0 top-6 h-6 w-full opacity-0 pointer-events-none group-hover:pointer-events-auto"></div>
+              <div className="absolute left-0 mt-1 w-48 bg-yellow-100 shadow-lg rounded-md opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto z-50">
+                <Link href="/schemes/scheme1" className="block px-4 py-2.5 text-gray-800 hover:bg-green-200 text-sm">Scheme 1</Link>
+                <Link href="/schemes/scheme2" className="block px-4 py-2.5 text-gray-800 hover:bg-green-200 text-sm">Scheme 2</Link>
               </div>
             </div>
 
-            <Link href="/agriwat" className="text-gray-200 hover:text-green-400">Agriwat</Link>
+            <Link href="/agriwat" className="text-gray-200 hover:text-green-400 text-base whitespace-nowrap">Agriwat</Link>
           </div>
         </nav>
 
         {/* Desktop Search and Auth Buttons */}
-        <div className="hidden sm:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-4 lg:space-x-6 flex-shrink-0">
           <div className="relative">
             <input
               type="text"
               placeholder="Search..."
-              className="pl-10 pr-4 py-2 rounded-full bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
+              className="pl-10 pr-4 py-1.5 rounded-full bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400 text-sm w-36 lg:w-48"
             />
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
           </div>
-          <Link href="/register" className="flex items-center text-gray-200 hover:text-green-400 text-sm">
-            <UserPlus className="h-5 w-5 mr-1" />
+          <Link href="/register" className="flex items-center text-gray-200 hover:text-green-400 text-sm whitespace-nowrap">
+            <UserPlus className="h-4 w-4 mr-1.5" />
             Register
           </Link>
-          <Link href="/login" className="flex items-center text-gray-200 hover:text-green-400 text-sm">
-            <LogIn className="h-5 w-5 mr-1" />
+          <Link href="/login" className="flex items-center text-gray-200 hover:text-green-400 text-sm whitespace-nowrap">
+            <LogIn className="h-4 w-4 mr-1.5" />
             Login
           </Link>
         </div>
@@ -125,35 +136,25 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="sm:hidden bg-gray-800 px-4 py-4">
-          <div className="flex flex-col space-y-4">
-            {/* Mobile Search Bar */}
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="w-full pl-10 pr-4 py-2 rounded-full bg-gray-700 text-gray-200 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400"
-              />
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-            </div>
-
-            <Link href="/" className="text-gray-200 hover:text-green-400" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-            <Link href="/services" className="text-gray-200 hover:text-green-400" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
+        <div className="md:hidden bg-gray-800 px-4 py-6">
+          <div className="flex flex-col space-y-5">
+            <Link href="/" className="text-gray-200 hover:text-green-400 text-base whitespace-nowrap" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+            <Link href="/services" className="text-gray-200 hover:text-green-400 text-base whitespace-nowrap" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
 
             {/* Mobile FPO Partners Dropdown */}
             <div>
-              <button className="text-gray-200 hover:text-green-400 flex items-center">
+              <button className="text-gray-200 hover:text-green-400 flex items-center text-base whitespace-nowrap">
                 FPO Partners
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
-              <div className="mt-2 w-full bg-yellow-100 shadow-lg rounded-md max-h-64 overflow-y-auto">
+              <div className="mt-3 w-full bg-yellow-100 shadow-lg rounded-md max-h-64 overflow-y-auto">
                 {indianStates.map((state) => (
                   <Link
                     key={state}
                     href={`/partners/${state.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="block px-4 py-2 text-gray-800 hover:bg-green-200"
+                    className="block px-4 py-3 text-gray-700 hover:bg-green-100 text-sm"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {state}
@@ -164,25 +165,25 @@ const Header = () => {
 
             {/* Mobile Schemes Dropdown */}
             <div>
-              <button className="text-gray-200 hover:text-green-400 flex items-center">
+              <button className="text-gray-200 hover:text-green-400 flex items-center text-base whitespace-nowrap">
                 Schemes
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
-              <div className="mt-2 w-full bg-yellow-100 shadow-lg rounded-md">
-                <Link href="/schemes/scheme1" className="block px-4 py-2 text-gray-800 hover:bg-green-200" onClick={() => setIsMobileMenuOpen(false)}>Scheme 1</Link>
-                <Link href="/schemes/scheme2" className="block px-4 py-2 text-gray-800 hover:bg-green-200" onClick={() => setIsMobileMenuOpen(false)}>Scheme 2</Link>
+              <div className="mt-3 w-full bg-yellow-100 shadow-lg rounded-md">
+                <Link href="/schemes/scheme1" className="block px-4 py-3 text-gray-700 hover:bg-green-100 text-sm" onClick={() => setIsMobileMenuOpen(false)}>Scheme 1</Link>
+                <Link href="/schemes/scheme2" className="block px-4 py-3 text-gray-700 hover:bg-green-100 text-sm" onClick={() => setIsMobileMenuOpen(false)}>Scheme 2</Link>
               </div>
             </div>
 
-            <Link href="/agriwat" className="text-gray-200 hover:text-green-400" onClick={() => setIsMobileMenuOpen(false)}>Agriwat</Link>
-            <Link href="/register" className="flex items-center text-gray-200 hover:text-green-400" onClick={() => setIsMobileMenuOpen(false)}>
-              <UserPlus className="h-5 w-5 mr-1" />
+            <Link href="/agriwat" className="text-gray-200 hover:text-green-400 text-base whitespace-nowrap" onClick={() => setIsMobileMenuOpen(false)}>Agriwat</Link>
+            <Link href="/register" className="flex items-center text-gray-200 hover:text-green-400 text-sm whitespace-nowrap" onClick={() => setIsMobileMenuOpen(false)}>
+              <UserPlus className="h-4 w-4 mr-2" />
               Register
             </Link>
-            <Link href="/login" className="flex items-center text-gray-200 hover:text-green-400" onClick={() => setIsMobileMenuOpen(false)}>
-              <LogIn className="h-5 w-5 mr-1" />
+            <Link href="/login" className="flex items-center text-gray-200 hover:text-green-400 text-sm whitespace-nowrap" onClick={() => setIsMobileMenuOpen(false)}>
+              <LogIn className="h-4 w-4 mr-2" />
               Login
             </Link>
           </div>
