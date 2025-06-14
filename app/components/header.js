@@ -43,9 +43,10 @@ const Header = () => {
       <div className="container mx-auto flex items-center justify-between py-4 pl-2 sm:pl-4 lg:pl-6 pr-4 sm:pr-6 lg:pr-8">
         {/* Logo Placeholder */}
         <div className="text-2xl font-bold text-white flex-shrink-0">
+          <Link href="/">
           <img src="/logofpcl.png" alt="Logo" className="h-10 w-auto" />
+          </Link>
         </div>
-
         {/* Mobile Search Bar (Centered) */}
         <div className="flex-1 mx-6 md:hidden">
           <div className="relative max-w-[200px] mx-auto">
@@ -104,7 +105,7 @@ const Header = () => {
               </button>
               <div className="absolute left-0 top-6 h-6 w-full opacity-0 pointer-events-none group-hover:pointer-events-auto"></div>
               <div className="absolute left-0 mt-1 w-48 bg-yellow-100 shadow-lg rounded-md opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto z-50">
-                <Link href="/schemes/scheme1" className="block px-4 py-2.5 text-gray-800 hover:bg-green-200 text-sm">Scheme 1</Link>
+                <Link href="/schemes" className="block px-4 py-2.5 text-gray-800 hover:bg-green-200 text-sm">Scheme 1</Link>
                 <Link href="/schemes/scheme2" className="block px-4 py-2.5 text-gray-800 hover:bg-green-200 text-sm">Scheme 2</Link>
               </div>
             </div>
@@ -172,7 +173,7 @@ const Header = () => {
                 </svg>
               </button>
               <div className="mt-3 w-full bg-yellow-100 shadow-lg rounded-md">
-                <Link href="/schemes/scheme1" className="block px-4 py-3 text-gray-700 hover:bg-green-100 text-sm" onClick={() => setIsMobileMenuOpen(false)}>Scheme 1</Link>
+                <Link href="/schemes" className="block px-4 py-3 text-gray-700 hover:bg-green-100 text-sm" onClick={() => setIsMobileMenuOpen(false)}>Scheme 1</Link>
                 <Link href="/schemes/scheme2" className="block px-4 py-3 text-gray-700 hover:bg-green-100 text-sm" onClick={() => setIsMobileMenuOpen(false)}>Scheme 2</Link>
               </div>
             </div>
