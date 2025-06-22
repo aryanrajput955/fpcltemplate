@@ -154,7 +154,7 @@ export default function SchemePopup({ scheme, onClose }) {
             <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
               <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 2l5 5h-5V4zm3 16H7v-2h9v2zm0-4H7v-2h9v2zm0-4H7V9h7v3h3v2z"/>
             </svg>
-            View PDF
+            Scheme Guidelines
           </a>
         )}
       </div>
