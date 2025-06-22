@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => (
   <footer className="bg-gradient-to-r from-green-100 to-white text-green-500 pt-12 pb-8">
@@ -9,16 +9,16 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
         {/* Company Info */}
         <div className="space-y-4">
-          <div className="flex items-center">
+        
             <Image
-              src="/logofpcl.png"
+              src="/fpcl (1).png"
               alt="Company Logo"
-              width={32}
-              height={32}
-              className="h-8 w-8"
+              width={100}
+              height={100}
+              className="h-40 w-40 -m-0 aspect-square"
             />
-            <span className="ml-2 text-xl font-bold">FPCL</span>
-          </div>
+  
+      
           <p className="text-gray-400">Empowering FPOs with premium farming products and logistics solutions.</p>
           <div className="flex space-x-4">
             <Link href="#" className="text-gray-400 hover:text-green-600 transition">

@@ -51,13 +51,13 @@ const FeaturedFPOs = () => (
           className="bg-white rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300"
         >
           <div className="relative">
-            <Image
-              src={fpo.imageSrc}
-              alt={fpo.name}
-              width={300}
-              height={192}
-              className="w-full h-48 object-cover"
-            />
+        <img
+  src={fpo.imageSrc}
+  alt={fpo.name}
+  width={300}
+  height={192}
+  className="w-full h-48 object-cover"
+/>
             <div className="absolute inset-0 bg-black opacity-0 hover:opacity-30 transition-opacity duration-300"></div>
           </div>
           <div className="p-6">

@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-
+import Image from 'next/image';
 export default function Blog() {
   const [currentPage, setCurrentPage] = useState(1);
   const blogsPerPage = 4;
@@ -32,35 +32,35 @@ export default function Blog() {
     {
       title: "The Role of Technology in Modern Agriculture",
       subtitle: "How tech innovations are transforming the agricultural landscape.",
-      image: "/5.avif", // Placeholder image path
+      image: "/4.avif", // Placeholder image path
       date: "3/20/2024",
       readTime: "4 min read",
     },
     {
       title: "Organic Farming: A Path to Healthier Future",
       subtitle: "The benefits and challenges of adopting organic farming practices.",
-      image: "/images/organic-farming.jpg", // Placeholder image path
+      image: "/5.avif", // Placeholder image path
       date: "4/10/2024",
       readTime: "3 min read",
     },
     {
       title: "Water Conservation Strategies for Farmers",
       subtitle: "Effective techniques to manage water resources in agriculture.",
-      image: "/images/water-conservation.jpg", // Placeholder image path
+      image: "/4.avif", // Placeholder image path
       date: "4/15/2024",
       readTime: "2 min read",
     },
     {
       title: "Boosting Crop Yields with Precision Agriculture",
       subtitle: "Using data-driven approaches to maximize agricultural output.",
-      image: "/images/precision-agriculture.jpg", // Placeholder image path
+      image: "/5.avif", // Placeholder image path
       date: "4/20/2024",
       readTime: "3 min read",
     },
     {
       title: "Supporting Rural Farmers Through Government Schemes",
       subtitle: "An overview of initiatives aimed at empowering rural agriculture.",
-      image: "/images/rural-farmers.jpg", // Placeholder image path
+      image: "/4.avif", // Placeholder image path
       date: "4/25/2024",
       readTime: "2 min read",
     },
@@ -98,11 +98,13 @@ export default function Blog() {
               key={index}
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
-              <img
-                src={blog.image}
-                alt={blog.title}
-                className="w-full h-48 object-cover"
-              />
+           <Image
+  src={blog.image}
+  alt={blog.title}
+  width={800} // You can adjust width as needed
+  height={400} // You can adjust height as needed
+  className="w-full h-48 object-cover"
+/>
               <div className="p-6">
                 <h2 className="text-xl font-semibold text-green-700">{blog.title}</h2>
                 {blog.subtitle && (

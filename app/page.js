@@ -6,8 +6,11 @@ import './globals.css'; // Ensure global styles are imported
 import FeaturedFPOs from './components/featuredfpo';
 import ImageGallery from './components/imagegallery';
 import FPOSection from './components/map';
-
+import SchemesGrid from './components/schemes';
+import SchemePopup from './components/schemepopup';
+import { useState } from 'react';
 export default function Home() {
+  const [selectedScheme, setSelectedScheme] = useState(null);
   return (
     <>
        <main className="min-h-screen bg-white text-gray-900">
@@ -15,6 +18,8 @@ export default function Home() {
     <FeaturedFPOs />
     <ImageGallery />
     <FPOSection />
+    <SchemesGrid onSchemeSelect={(scheme) => setSelectedScheme(scheme)} />
+      {selectedScheme && <SchemePopup scheme={selectedScheme} onClose={() => setSelectedScheme(null)} />}
     </main>
     </>
   );

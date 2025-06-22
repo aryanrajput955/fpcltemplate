@@ -44,7 +44,12 @@ const Header = () => {
         {/* Logo Placeholder */}
         <div className="text-2xl font-bold text-white flex-shrink-0">
           <Link href="/">
-          <img src="/logofpcl.png" alt="Logo" className="h-10 w-auto" />
+        <img
+  src="/logo2.png"
+  alt="Logo"
+  className="h-10 w-auto"
+
+/>
           </Link>
         </div>
         {/* Mobile Search Bar (Centered) */}
